@@ -17,7 +17,7 @@ Background: This query will select the UCDM harmonized ‘year_of_birth’ varia
  
 Query Example 2: Review distribution by year of birth and race across all datasets
  
-Tutorial: As in query example 1, we will query the distribution of the variables ‘year_of_birth’ and ‘race’ across all available biobanks. Note that you can query only variables that have previously been harmonized in the Unison common data model (link on how to do this). Already harmonized meta data variables are suggested with the autocomplete feature. If now specific data resource is specified in the ‘FROM’ section, as in this case, only variables that are harmonized across all biobanks are available.
+Tutorial: As in query example 1, we will query the distribution of the variables `year_of_birth` and `race` across all available biobanks. Note that you can query only variables that have previously been harmonized in the Unison common data model (link on how to do this). Already harmonized meta data variables are suggested with the autocomplete feature. If now specific data resource is specified in the ‘FROM’ section, as in this case, only variables that are harmonized across all biobanks are available.
  
 
 ```yaml
@@ -30,7 +30,7 @@ Background: This query will select the UCDM harmonized ‘year_of_birth’ and �
  
 Query Example 3: Review distributions by year of birth and race of all males
  
-Tutorial: Now we use what we’ve learned in query example 1 and 2 and add a more finegrained cohort selection using the ‘where’ argument. Note that variables in the ‘where’ clause need to be harmonized across all queried biobanks in the Unison common data model (link on how to do this). In this example query, we select ‘year_of_birth’ and ‘race’ from all Unison harmonized variables and we then select only those individuals that have a ‘White’ or ‘Black’ string in the ‘race’ harmonized meta-data field.
+Tutorial: Now we use what we’ve learned in query example 1 and 2 and add a more finegrained cohort selection using the `where` argument. Note that variables in the ‘where’ clause need to be harmonized across all queried biobanks in the Unison common data model (link on how to do this). In this example query, we select `year_of_birth` and `race` from all Unison harmonized variables and we then select only those individuals that have a ‘White’ or ‘Black’ string in the ‘race’ harmonized meta-data field.
 
 ```yaml
 select:
@@ -54,7 +54,7 @@ select:
   diag: diag1.icd10
 ```
  
-The above statement is equivalent to SELECT diag1.icd10 as diag in SQL annotation.
+The above statement is equivalent to `SELECT diag1.icd10 as diag` in SQL annotation.
  
 In the second part of the query we will initiate a join of the diag1 table containing disease annotations and the main patient characteristics datatable based on the patient id column.
  
@@ -69,8 +69,10 @@ JOIN:
  
 If we were to write out this join in SQL syntax, it would look like:
 
-```
-SELECT diag1.icd10 FROM patient JOIN condition on condition.patient_id = patient.id
+```sql
+SELECT diag1.icd10
+FROM patient
+JOIN condition ON condition.patient_id = patient.id
 ```
  
 So the full query to see all icd10 codes of diseases represented across all databases is:
