@@ -6,9 +6,9 @@ Query Example 1: Review distribution of a meta-data variable across a population
  
 Tutorial: In this example we will query the distribution of the variable ‘year_of_birth’ across all available biobanks. Note that you can query only variables that have previously been harmonized in the Unison common data model (link on how to do this). Already harmonized meta data variables are suggested with the autocomplete feature. If now specific data resource is specified in the ‘FROM’ section, as in this case, only variables that are harmonized across all biobanks are available.
 
-```
+```yaml
 SELECT:
--   	Year_of_birth
+  - Year_of_birth
 ```
  
 Background: This query will select the UCDM harmonized ‘year_of_birth’ variable across all available biobanks/datasets and distributions of this variable across the entire data resource can be reviewed in the next step.
