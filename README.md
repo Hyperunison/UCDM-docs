@@ -48,13 +48,18 @@ The above statement is equivalent to SELECT diag1.icd10 as diag in SQL annotatio
 In the second part of the query we will initiate a join of the diag1 table containing disease annotations and the main patient characteristics datatable based on the patient id column.
  
 The shorthand form of this query is:
+```
 select:
-  diag: diag1.icd10
+  - diag1.icd10
 JOIN:
   - condition: diag1
+```
  
 If we were to write out this join in SQL syntax, it would look like:
-SELECT diag1.icd10 as diag JOIN diag1 on patient_data condition (patient_id = patient_id) [Artem – please check and revise if necessary]
+
+```
+SELECT diag1.icd10 FROM patient JOIN condition on condition.patient_id = patient.id
+```
  
 So the full query to see all icd10 codes of diseases represented across all databases is:
 select:
