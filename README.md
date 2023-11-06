@@ -73,6 +73,18 @@ Unison harmonized main patient data table: Explanatory text
 Unison harmonized diagnosis code table: Explanatory text
 Unison harmonized measurement code table: Explanatory text
 Unison harmonized procedure code table: Explanatory text
+
+## Unison Harmonized data model and table structure
+
+## Biobank table structure and integration into Unison
+
+## FAQ Section
+* How do I connect to a biobank to which I have access to?
+* Do I need to get my biobanks and data sources to install the Unison software?
+* I'm interested in a variable that is not in the harmonized Unison common data model - what do I do?
+* I have thousands of column entries to map - how do I do this?
+  Use the Unison chatGPT mapping tool. 
+* How do I link my private dataset with the biobanks? How can I be sure that my data is safe and isn't exposed?
  
  
 Tutorial: How to harmonize a variable and add it to the Unison common data model
