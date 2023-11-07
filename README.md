@@ -107,6 +107,11 @@ Unison harmonized procedure code table: Explanatory text
 * I have thousands of column entries to map - how do I do this?
   Use the Unison chatGPT mapping tool. 
 * How do I link my private dataset with the biobanks? How can I be sure that my data is safe and isn't exposed?
+
+## What's confusing
+* Drug / Measurment / Condition tables need to be joined to be available. The join is happening after variables from these tables are selected. The logical flow would be to first join and then select from the merged table.
+* Aliases are assigned by drug: d1, rather than join drug as d1, for example - hard to follow for the uninitiated user.
+* Alias assignment seems to be necessary - or can I do a join without creating an alias?
  
  
 Tutorial: How to harmonize a variable and add it to the Unison common data model
