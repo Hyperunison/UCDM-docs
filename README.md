@@ -1,6 +1,59 @@
 # Unison Common Data Model - Documentation
 
-## [Overview](#Overview)
+## Overview
+### What is the purpose of the UCDM?
+The UCDM is a light-weight way to map variables across multiple biobanks for federated data queries and analyses. 
+
+### What is the philosophy behind the UCDM?
+It uses the principles of the OMOP common data model, but does not require a biobank to be converted to the OMOP common data model. We are doing this for you on the fly. It is a very efficient way of going about this, as we only map variables a user is interested in, rather than having to map thousands of variables in a biobank.  
+
+## UCDM Structure
+### UCDM Universal Query Language (UQL)
+The UCDM uses the Universal Query Language (UQL), a yaml based variant of the Standard Query Language (SQL). Database queries are defined in a yaml framework. For example the SQL query: 
+```
+SELECT column1, column5 AS alias5 FROM TABLE x WHERE column1 > 50
+```
+
+would be represented as 
+
+```
+SELECT:
+  - column1
+  - column5: alias5
+FROM:
+ - x
+WHERE:
+ - column1: >25
+
+```
+
+### UCDM Table structure
+
+In the UCDM the tables below exist in the background. Tables other than patientID can be joined to the patient ID table as needed by the query to form a big table for a more comprehensive query.
+
+#### PatientID table
+In the UCDM the patientID table contains basic patient information. The columns present in this table are [list of columns] and can be queried like this: Mechanism on how to query here. 
+
+#### Measurement table
+The measurement table has three columns in the UCDM:
+- measurement.Name
+- measurement.Date
+- measurement.Value
+
+#### Condition table
+The conditions table has three columns in the UCDM:
+- condition.ICD10
+
+## UCDM Mappings
+### How are biobanks mapped to the UCDM?
+
+## Tutorials
+### How to find biobanks of interest
+### How to check biobank mappings
+### Examples on how to create a cohort in one biobank
+### Examples on how to create a cohort across multiple biobanks
+
+## Overview
 ### What is the purpose of the UCDM?
 ### What is the philosophy behind the UCDM?
 
@@ -16,7 +69,6 @@
 ### How to check biobank mappings
 ### Examples on how to create a cohort in one biobank
 ### Examples on how to create a cohort across multiple biobanks
-
 
 [here](#place-2)
 ## Overview
