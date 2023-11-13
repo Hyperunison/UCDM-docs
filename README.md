@@ -34,15 +34,42 @@ In the UCDM the tables below exist in the background. Tables other than patientI
 #### PatientID table
 In the UCDM the patientID table contains basic patient information. The columns present in this table are [list of columns] and can be queried like this: Mechanism on how to query here. 
 
-#### Measurement table
-The measurement table has three columns in the UCDM:
-- measurement.Name
-- measurement.Date
-- measurement.Value
+At present the UCDM table features the following harmonized colums:
+* race: race of patient (example values: 'White', 'Black', 'Chinese')
+* gender: race of patient (example values: 'Male', 'Female')
+* ethnicity: ethnicity of patient (example values: 'UK', 'DE', 'FR')
+* year_of_birth: int (example values: 1970, 2000)
+* date_of_birth: string (example values: '2020-01-01')
+* (patientID) - for privacy reason this column is never displayed and only used internally
 
-#### Condition table
+In the future these harmonized values will increase significantly. 
+
+#### Measurement Table
+The measurement table has three columns in the UCDM:
+* measurement.name: name fo drug (example values: ???)
+* measurement.value: (example values: ???)
+* measurement.date: (example values: '2020-01-01')
+* (patientID) - for privacy reason this column is never displayed and only used internally
+
+#### Condition Table
 The conditions table has three columns in the UCDM:
-- condition.ICD10
+* condition.icd10: icd10 name of disease (example values: 'Oesophagitis', 'Chronic sinusitis')
+* condition.start_date: (example values: '2020-01-01')
+* condition.end_date: (example values: '2020-01-01')
+* (patientID) - for privacy reason this column is never displayed and only used internally
+
+#### Drug Table
+* drug.name: name fo drug (example values: ???)
+* drug.start_date: (example values: '2020-01-01')
+* drug.end_date: (example values: '2020-01-01')
+* (patientID) - for privacy reason this column is never displayed and only used internally
+
+#### Procedure Table
+* procedure.name: name fo drug (example values: ???)
+* procedure.value: (example values: ???)
+* procedure.date: (example values: '2020-01-01')
+* procedure.quantity: quantity of procedure (example values: ???)
+* (patientID) - for privacy reason this column is never displayed and only used internally
 
 ## UCDM Mappings
 ### How are biobanks mapped to the UCDM?
