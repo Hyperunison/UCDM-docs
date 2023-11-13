@@ -1,4 +1,36 @@
-# UCDM-docs
+# Unison Common Data Model - Documentation
+
+## Overview
+### What is the purpose of the UCDM?
+### What is the philosophy behind the UCDM?
+
+## UCDM Structure
+### UCDM Universal Query Language (UQL)
+### UCDM Table structure
+
+## UCDM Mappings
+### How are biobanks mapped to the UCDM?
+
+## Tutorials
+### How to find biobanks of interest
+### How to check biobank mappings
+### Examples on how to create a cohort in one biobank
+### Examples on how to create a cohort across multiple biobanks
+
+
+
+## Overview
+Welcome to the Unison UCDM documentation. In the following, we will describe the structure of the Unison common data model (UCDM) and provide tutorials on how to use it. 
+
+### What is the purpose of the UCDM? 
+
+## UCDM Structure
+
+
+
+## Tutorials
+
+
 
 Query Tutorial:
  
