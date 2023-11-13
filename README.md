@@ -26,6 +26,42 @@ WHERE:
  - column1: >25
 
 ```
+On the other hand, the UCDM query 
+```
+SELECT:                                    # List variables you want to see
+  - year_of_birth                          # Variables will be harmonized to CDM 
+  - race                                   # List of variables you may see in `Vars available` tab
+  - phenotype: gender == 'Female'          # You also may use some expressions. Set alias for expressions (SQL analogue of AS)
+  - coef: ifelse(race == 'White', 1, 5)    # And ifelse function as well
+
+#FROM: [ATLAS1, CBIO1]                     # Specify list biobanks you are interested in. All biobanks by default
+
+JOIN:                                      # Join additional tables, if you need more data: condition, procedure, drags and so on
+  - condition: c1                          # We always JOIN to patient table, and you event not should specify it. SQL analogue is JOIN condition as c1 ON c1.patient_id=patient.id
+
+WHERE:
+  - race == 'White' OR ethnicity == 'UK'   # You may use SQL-like syntax to write conditions. We will convert all constants or variables to CDM for you
+  - date_of_birth > '1930-01-01'           # All variables here are harmonized, so you may compare them with constants
+  - c1.icd10 IN ['Oesophagitis', 'Chronic sinusitis', 'Haematemesis']
+  - c1.start_date > date_of_birth          # or even compare variables between each other
+  - c1.start_date - date_of_birth > 90 days         # or use date comparison functions 
+
+```
+could be imagined as SQL query like:
+
+```
+SELECT
+  year_of_birth,
+  race,
+  CASE (WHEN gender == "Female" THEN 1 ELSE 0) END as phenotype,
+  CASE (race == 'White' THEN 1, ELSE 5) END as coef,
+FROM
+  ATLAS1, CBIO1
+JOIN
+  condition as c1
+ON c1.patientID = patient.id;
+WHERE race = "White" OR ethicity = "UK"
+```
 
 ### UCDM Table structure
 
