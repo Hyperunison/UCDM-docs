@@ -60,7 +60,12 @@ FROM
 JOIN
   condition as c1
 ON c1.patientID = patient.id;
-WHERE race = "White" OR ethicity = "UK"
+WHERE
+  (race = "White" OR ethicity = "UK") AND
+  (date_of_birth > '1930-01-01') AND
+  (c1.icd10 IN ['Oesophagitis', 'Chronic sinusitis', 'Haematemesis']) AND
+  (c1.start_date > date_of_birth) AND
+  (c1.start_date - data_of_birth) > 90 days
 ```
 
 ### UCDM Table structure
