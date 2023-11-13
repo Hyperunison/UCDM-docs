@@ -10,13 +10,13 @@ It uses the principles of the OMOP common data model, but does not require a bio
 ## UCDM Structure
 ### UCDM Universal Query Language (UQL)
 The UCDM uses the Universal Query Language (UQL), a yaml based variant of the Standard Query Language (SQL). Database queries are defined in a yaml framework. For example the SQL query: 
-```
+```sql
 SELECT column1, column5 AS alias5 FROM TABLE x WHERE column1 > 50
 ```
 
 would be represented as 
 
-```
+```yaml
 SELECT:
   - column1
   - column5: alias5
@@ -27,7 +27,7 @@ WHERE:
 
 ```
 On the other hand, the UCDM query 
-```
+```yaml
 SELECT:                                    # List variables you want to see
   - year_of_birth                          # Variables will be harmonized to CDM 
   - race                                   # List of variables you may see in `Vars available` tab
@@ -49,7 +49,7 @@ WHERE:
 ```
 could be imagined as SQL query like:
 
-```
+```sql
 SELECT
   year_of_birth,
   race,
@@ -121,40 +121,9 @@ The conditions table has three columns in the UCDM:
 ### Examples on how to create a cohort in one biobank
 ### Examples on how to create a cohort across multiple biobanks
 
-## Overview
-### What is the purpose of the UCDM?
-### What is the philosophy behind the UCDM?
 
-## UCDM Structure
-### UCDM Universal Query Language (UQL)
-### UCDM Table structure
-
-## UCDM Mappings
-### How are biobanks mapped to the UCDM?
-
-## Tutorials
-### How to find biobanks of interest
-### How to check biobank mappings
-### Examples on how to create a cohort in one biobank
-### Examples on how to create a cohort across multiple biobanks
-
-[here](#place-2)
-## Overview
-Welcome to the Unison UCDM documentation. In the following, we will describe the structure of the Unison common data model (UCDM) and provide tutorials on how to use it. 
-
-### What is the purpose of the UCDM? 
-
-## UCDM Structure
-
-
-
-## Tutorials
-
-
-
-Query Tutorial:
- 
-Query Example 1: Review distribution of a meta-data variable across a population
+## Query Tutorials
+### Query Example 1: Review distribution of a meta-data variable across a population
  
 Tutorial: In this example we will query the distribution of the variable ‘year_of_birth’ across all available biobanks. Note that you can query only variables that have previously been harmonized in the Unison common data model (link on how to do this). Already harmonized meta data variables are suggested with the autocomplete feature. If now specific data resource is specified in the ‘FROM’ section, as in this case, only variables that are harmonized across all biobanks are available.
 
@@ -167,7 +136,7 @@ Background: This query will select the UCDM harmonized ‘year_of_birth’ varia
  
  
  
-Query Example 2: Review distribution by year of birth and race across all datasets
+### Query Example 2: Review distribution by year of birth and race across all datasets
  
 Tutorial: As in query example 1, we will query the distribution of the variables `year_of_birth` and `race` across all available biobanks. Note that you can query only variables that have previously been harmonized in the Unison common data model (link on how to do this). Already harmonized meta data variables are suggested with the autocomplete feature. If now specific data resource is specified in the ‘FROM’ section, as in this case, only variables that are harmonized across all biobanks are available.
  
@@ -180,7 +149,7 @@ SELECT:
  
 Background: This query will select the UCDM harmonized ‘year_of_birth’ and ‘race’ variables across all available biobanks/datasets and the distributions of this variable across the entire data resource can be reviewed in the next step.
  
-Query Example 3: Review distributions by year of birth and race of all males
+### Query Example 3: Review distributions by year of birth and race of all males
  
 Tutorial: Now we use what we’ve learned in query example 1 and 2 and add a more finegrained cohort selection using the `where` argument. Note that variables in the ‘where’ clause need to be harmonized across all queried biobanks in the Unison common data model (link on how to do this). In this example query, we select `year_of_birth` and `race` from all Unison harmonized variables and we then select only those individuals that have a ‘White’ or ‘Black’ string in the ‘race’ harmonized meta-data field.
 
@@ -194,7 +163,7 @@ where:
 
 Background: This query will select the ‘year_of_birth’ and ‘race’ variables across all available biobanks/datasets and then select from these what’s specified in the where clause. The distribution of this variable across the entire data resource can be reviewed in the next step.
  
-Query example 4: Review diagnosis distribution for all patients
+### Query example 4: Review diagnosis distribution for all patients
  
 Tutorial: Now we’d like to see the distribution of all diseases across all available biobanks / datasets. Now, this is going to be a slightly more complex query, as we need to join the general patient database table with the diagnosis database table.
  
@@ -248,9 +217,6 @@ Unison harmonized diagnosis code table: Explanatory text
 Unison harmonized measurement code table: Explanatory text
 Unison harmonized procedure code table: Explanatory text
 
-## Unison Harmonized data model and table structure
-
-## Biobank table structure and integration into Unison
 
 ## FAQ Section
 * How do I connect to a biobank to which I have access to?
@@ -265,9 +231,6 @@ Unison harmonized procedure code table: Explanatory text
 * Aliases are assigned by drug: d1, rather than join drug as d1, for example - hard to follow for the uninitiated user.
 * Alias assignment seems to be necessary - or can I do a join without creating an alias?
  
- 
-Tutorial: How to harmonize a variable and add it to the Unison common data model
-To be added.
- 
+  
  
 
